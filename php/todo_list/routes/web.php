@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', 'App\Http\Controllers\TodolistFormController@index');
+Route::get('/create-page', 'App\Http\Controllers\TodolistFormController@createPage');
+Route::post('/create', 'App\Http\Controllers\TodolistFormController@create');
+Route::get('/edit-page/{id}', 'App\Http\Controllers\TodolistFormController@editPage');
+Route::post('/edit', 'App\Http\Controllers\TodolistFormController@edit');
+
