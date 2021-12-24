@@ -58,5 +58,22 @@ class TodolistFormController extends Controller
         return redirect('/');
     }
 
+    // タスク削除画面を表示
+    public function deletePage($id)
+    {
+        $todo = Todo::find($id);
+        return view('todo_delete', [
+            "todo" => $todo
+        ]);
+    }
+
+
+    // タスクを削除
+    public function delete(Request $id)
+    {
+        Todo::find($id)->delete();
+        return redirect('/');
+    }
+
     // 以下省略
 }
